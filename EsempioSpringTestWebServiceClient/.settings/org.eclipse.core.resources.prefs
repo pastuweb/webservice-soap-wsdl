@@ -1,0 +1,7 @@
+eclipse.preferences.version=1
+encoding//src/net/appuntivari/model/dto/Persona.java=UTF-8
+encoding//src/net/appuntivari/model/dto/Utente.java=UTF-8
+encoding//src/net/appuntivari/webservice/WebserviceSOAP.java=UTF-8
+encoding//src/net/appuntivari/webservice/WebserviceSOAPHttpBindingStub.java=UTF-8
+encoding//src/net/appuntivari/webservice/WebserviceSOAPLocator.java=UTF-8
+encoding//src/net/appuntivari/webservice/WebserviceSOAPPortType.java=UTF-8

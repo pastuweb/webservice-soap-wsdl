@@ -1,0 +1,34 @@
+<?xml version="1.0"?>    
+<web-app xmlns="http://java.sun.com/xml/ns/j2ee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd"
+         version="2.4">
+
+	<context-param>
+		<param-name>contextConfigLocation</param-name>
+		<param-value>
+			/WEB-INF/config/context.xml
+			classpath:org/codehaus/xfire/spring/xfire.xml
+		</param-value>
+	</context-param>
+  
+  	<listener>
+        <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+    </listener>
+
+	<!-- esposizione dei servizi tramite xfire (XML/SOAP) -->
+	<servlet>
+		<servlet-name>xfire</servlet-name>
+		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+		<init-param>
+			<param-name>contextConfigLocation</param-name>
+			<param-value>/WEB-INF/config/endpoints-xfire.xml</param-value>
+		</init-param>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>xfire</servlet-name>
+		<url-pattern>/xfire/*</url-pattern>
+	</servlet-mapping>
+	
+</web-app>

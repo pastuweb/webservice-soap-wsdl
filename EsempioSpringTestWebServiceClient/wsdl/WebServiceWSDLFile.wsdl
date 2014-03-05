@@ -1,0 +1,154 @@
+<definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:ns1="http://dto.model.appuntivari" xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tns="http://webservice.appuntivari" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://webservice.appuntivari">
+<wsdl:types>
+<xsd:schema targetNamespace="http://webservice.appuntivari.net" elementFormDefault="qualified" attributeFormDefault="qualified">
+<xsd:element name="getListaPersone">
+<xsd:complexType/>
+</xsd:element>
+<xsd:element name="getListaPersoneResponse">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="out" type="ns1:ArrayOfPersona" minOccurs="1" maxOccurs="1"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="getPersona">
+<xsd:complexType/>
+</xsd:element>
+<xsd:element name="getPersonaResponse">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="out" type="ns1:Persona" minOccurs="1" maxOccurs="1"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="getTime">
+<xsd:complexType/>
+</xsd:element>
+<xsd:element name="getTimeResponse">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="out" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="createUtente">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="in0" type="ns1:Utente" minOccurs="1" maxOccurs="1"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="createUtenteResponse">
+<xsd:complexType/>
+</xsd:element>
+</xsd:schema>
+<xsd:schema targetNamespace="http://dto.model.appuntivari.net" elementFormDefault="qualified" attributeFormDefault="qualified">
+<xsd:complexType name="ArrayOfPersona">
+<xsd:sequence>
+<xsd:element name="Persona" type="ns1:Persona" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+</xsd:sequence>
+</xsd:complexType>
+<xsd:complexType name="Persona">
+<xsd:sequence>
+<xsd:element name="cognome" type="xsd:string" nillable="true"/>
+<xsd:element name="dataNascita" type="xsd:dateTime"/>
+<xsd:element name="nome" type="xsd:string" nillable="true"/>
+</xsd:sequence>
+</xsd:complexType>
+<xsd:complexType name="Utente">
+<xsd:sequence>
+<xsd:element name="password" type="xsd:string" nillable="true"/>
+<xsd:element name="persona" type="ns1:Persona" nillable="true"/>
+<xsd:element name="profilo" type="xsd:string" nillable="true"/>
+<xsd:element name="username" type="xsd:string" nillable="true"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:schema>
+</wsdl:types>
+<message name="createUtenteResponse">
+<part element="tns:createUtenteResponse" name="parameters"/>
+</message>
+<message name="getTimeRequest">
+<part element="tns:getTime" name="parameters"/>
+</message>
+<message name="getTimeResponse">
+<part element="tns:getTimeResponse" name="parameters"/>
+</message>
+<message name="getListaPersoneRequest">
+<part element="tns:getListaPersone" name="parameters"/>
+</message>
+<message name="getListaPersoneResponse">
+<part element="tns:getListaPersoneResponse" name="parameters"/>
+</message>
+<message name="getPersonaResponse">
+<part element="tns:getPersonaResponse" name="parameters"/>
+</message>
+<message name="getPersonaRequest">
+<part element="tns:getPersona" name="parameters"/>
+</message>
+<message name="createUtenteRequest">
+<part element="tns:createUtente" name="parameters"/>
+</message>
+<portType name="webserviceSOAPPortType">
+<operation name="getListaPersone">
+<input message="tns:getListaPersoneRequest" name="getListaPersoneRequest"/>
+<output message="tns:getListaPersoneResponse" name="getListaPersoneResponse"/>
+</operation>
+<operation name="getPersona">
+<input message="tns:getPersonaRequest" name="getPersonaRequest"/>
+<output message="tns:getPersonaResponse" name="getPersonaResponse"/>
+</operation>
+<operation name="getTime">
+<input message="tns:getTimeRequest" name="getTimeRequest"/>
+<output message="tns:getTimeResponse" name="getTimeResponse"/>
+</operation>
+<operation name="createUtente">
+<input message="tns:createUtenteRequest" name="createUtenteRequest"/>
+<output message="tns:createUtenteResponse" name="createUtenteResponse"/>
+</operation>
+</portType>
+<binding name="webserviceSOAPHttpBinding" type="tns:webserviceSOAPPortType">
+<wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+<operation name="getListaPersone">
+<wsdlsoap:operation soapAction=""/>
+<input name="getListaPersoneRequest">
+<wsdlsoap:body use="literal"/>
+</input>
+<output name="getListaPersoneResponse">
+<wsdlsoap:body use="literal"/>
+</output>
+</operation>
+<operation name="getPersona">
+<wsdlsoap:operation soapAction=""/>
+<input name="getPersonaRequest">
+<wsdlsoap:body use="literal"/>
+</input>
+<output name="getPersonaResponse">
+<wsdlsoap:body use="literal"/>
+</output>
+</operation>
+<operation name="getTime">
+<wsdlsoap:operation soapAction=""/>
+<input name="getTimeRequest">
+<wsdlsoap:body use="literal"/>
+</input>
+<output name="getTimeResponse">
+<wsdlsoap:body use="literal"/>
+</output>
+</operation>
+<operation name="createUtente">
+<wsdlsoap:operation soapAction=""/>
+<input name="createUtenteRequest">
+<wsdlsoap:body use="literal"/>
+</input>
+<output name="createUtenteResponse">
+<wsdlsoap:body use="literal"/>
+</output>
+</operation>
+</binding>
+<service name="webserviceSOAP">
+<port binding="tns:webserviceSOAPHttpBinding" name="webserviceSOAPHttpPort">
+<wsdlsoap:address location="http://localhost:8080/SpringTestWebService/xfire/SimpleWebService"/>
+</port>
+</service>
+</definitions>
